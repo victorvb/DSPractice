@@ -1,6 +1,7 @@
 
 import DataStructure.LinkedList.CircularLinkedList;
 import DataStructure.LinkedList.SingluarLinkedList;
+import DataStructure.Sorting.Sort;
 import IO.NumbersConsumer;
 import IO.NumbersProducer;
 import IO.ThreadPractice;
@@ -14,7 +15,7 @@ public class Main {
         int [] tmp1 = {1,2,3,4,5,6,7,8,9,10};
         int [] tmp2 = new int[10];
 
-
+        sortTestSets();
 
     }
 
@@ -22,6 +23,13 @@ public class Main {
         SingluarLinkedList tmpList = SingluarLinkedList.generateLinkedList(20);
         tmpList.delete(3);
         tmpList.printList();
+    }
+
+    public static void sortTestSets(){
+        int[] testSet = {5,1,8,2,7,3,7,3};
+        Sort test = new Sort();
+        test.bubbleSort2(testSet);
+        test.printArray(testSet);
     }
 
     public static void circularLinkedListTest(){

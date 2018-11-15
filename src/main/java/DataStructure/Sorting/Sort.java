@@ -18,6 +18,18 @@ public class Sort {
         }
     }
 
+    public void bubbleSort2(int [] array){
+        for(int i = 0; i < array.length-1; i++){
+            for(int j = i; j < array.length-1; j++){
+                if(array[j] > array[j+1]){
+                    int tmp = array[j];
+                    array[j] = array[j+1];
+                    array[j+1] = tmp;
+                }
+            }
+        }
+    }
+
     public void selectionSort(int[] array){
         int minPos;
         int tmp;
@@ -105,6 +117,10 @@ public class Sort {
         quickSort(array, left+1,b);
     }
 
+    public void quickSort2(int [] array, int size){
+
+    }
+
     private int findMinPos(int[] array){
         if(array == null){
             return -9999;
@@ -150,13 +166,5 @@ public class Sort {
             arr[i] = arr[i-1];
         }
         arr[i] = tmp;
-    }
-
-    public static void main(String[] args){
-        int[] testSet = {5,1,8,2,7,3,7,3};
-        Sort test = new Sort();
-
-        test.quickSort(testSet, 0, testSet.length);
-        test.printArray(testSet);
     }
 }
