@@ -5,28 +5,33 @@ import java.util.Random;
 public class SingluarLinkedList {
     public Node head;
     public Node tail;
+    public int size;
 
-    SingluarLinkedList(){
+    public SingluarLinkedList(){
         // dummy node
         this.head = new Node();
         this.tail = this.head;
+        this.size = 0;
     }
 
-    SingluarLinkedList(int val){
+    public SingluarLinkedList(int val){
         this.head = new Node();
         this.head.next = new Node(val);
         this.tail = this.head.next;
+        this.size = 1;
     }
 
     public void append(int val){
         this.tail.next = new Node(val);
         this.tail = this.tail.next;
+        this.size++;
     }
 
     public void insertAtStart(int val){
         Node tmp = new Node(val);
         tmp.next = this.head.next;
         this.head.next = tmp;
+        this.size++;
     }
 
     public void delete(int val){
@@ -34,6 +39,7 @@ public class SingluarLinkedList {
         while(tmp.next != null){
             if(tmp.next.val == val){
                 tmp.next = tmp.next.next;
+                this.size--;
             }
             tmp = tmp.next;
         }
@@ -50,6 +56,10 @@ public class SingluarLinkedList {
     }
 
     public void printList(){
+        if(size < 1){
+            return;
+        }
+
         Node tmp = this.head.next;
         while(tmp != null){
             System.out.print(tmp.val);

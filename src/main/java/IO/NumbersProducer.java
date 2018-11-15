@@ -26,10 +26,10 @@ public class NumbersProducer implements Runnable {
 
     private void generateNumbers() throws InterruptedException {
         for (int i = 0; i < 100; i++) {
-            numbersQueue.put(ThreadLocalRandom.current().nextInt(100));
+            this.numbersQueue.put(ThreadLocalRandom.current().nextInt(100));
         }
-        for (int j = 0; j < poisonPillPerProducer; j++) {
-            numbersQueue.put(poisonPill);
+        for (int j = 0; j < this.poisonPillPerProducer; j++) {
+            this.numbersQueue.put(poisonPill);
         }
     }
 }
